@@ -1,0 +1,18 @@
+import { Routes, Route  } from "react-router-dom"
+import MainLayout from "../layouts/MainLayout/MainLayout"
+import HomePage from "../pages/home/HomePage";
+import AuthPage from "../pages/auth/AuthPage";
+
+const AppRouter = () => {
+   return(
+      <Routes>
+         {/* Default layout (for users) */}
+         <Route element={<MainLayout/>}>
+            <Route path="/" element={<HomePage/>} />
+         </Route>
+         <Route path="/signin" element={<AuthPage />} />
+         <Route path="/register" element={<AuthPage />} />
+      </Routes>
+   )
+};
+export default AppRouter;

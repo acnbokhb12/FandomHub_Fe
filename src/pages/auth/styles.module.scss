@@ -1,0 +1,124 @@
+.Auth__main {
+    -moz-box-flex: 1;
+    flex: 1 1;
+    display: -moz-box;
+    display: flex;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    -moz-box-align: center;
+    align-items: center;
+    background-color: #f5f3f5;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.Auth__Layout {
+    font-family: rubik, helvetica, arial, sans-serif;
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+    min-height: auto;
+    background-color: #f5f3f5;
+    border-radius: 0;
+    display: -moz-box;
+    display: flex;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    -moz-box-flex: 1;
+    flex: 1 1;
+    overflow: hidden;
+}
+
+.AuthLayout_header {
+    background-color: #520044;
+    background-image: url('https://auth.fandom.com/_next/static/media/branding_background.0dca6f4005f45bb7b9afa285c6671733.png');
+    background-repeat: repeat;
+    background-size: 382px;
+    min-height: 180px;
+    padding: 18px 18px 24px;
+    position: relative;
+    text-align: center;
+    display: -moz-box;
+    display: flex;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    flex-direction: column;
+    -moz-box-align: center;
+    align-items: center;
+    -moz-box-pack: center;
+    justify-content: center;
+}
+
+.AuthLayout_header_title {
+    color: #fff;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+    white-space: pre-line;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+.AuthLayout_header_subtitle {
+    color: #fff;
+    margin: 6px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.AuthLayout_header_icon {
+    bottom: 0;
+    content: " ";
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translate(-50%, 50%);
+    -moz-transform: translate(-50%, 50%);
+    transform: translate(-50%, 50%);
+    width: 50px;
+    height: 50px;
+    background-color: #280033;
+    display: -moz-box;
+    display: flex;
+    -moz-box-pack: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: 4px solid #fff;
+    overflow: hidden;
+    align-items: center;
+}
+
+.AuthLayout_header_icon_img {
+    width: 60%;
+    height: 80%;
+    object-fit: cover;
+}
+
+.AuthLayout_content {
+    padding: 42px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.CaptchaTos_captchaTos {
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 18px 12px;
+    color: #1e0c1b;
+    margin-top: auto;
+    margin-bottom: 0;
+
+    a {
+        font-weight: 700;
+        color: var(--fandom-link-color);
+        text-decoration: none;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .AuthLayout_content {
+        padding: 42px 18px 18px;
+    }
+}
