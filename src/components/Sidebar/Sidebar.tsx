@@ -232,8 +232,8 @@ const MainSidebar = () => {
                             Explore
                         </Typography>
                         <Item
-                            title="Login"
-                            to="/login"
+                            title="About"
+                            to="/about"
                             icon={<FaRegStar />}
                             selected={selected}
                             setSelected={setSelected}

@@ -1,17 +1,4 @@
-html {
-    font-size: 62.5%;
-    line-height: 1.6rem;
-    font-family: "Open Sans", sans-serif;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-body {
-    /* background-color: #e6e6e6; */
-}
-
-.clear {
-    clear: both;
-}
+ 
 
 .app {
     display: flex;
@@ -58,5 +45,8 @@ body {
 .container__pages { 
     width: 100%;
     margin-top:6.5rem;
+}
+.contain__pages_detail{
+    margin-top: 6.6rem;
 }
   
