@@ -1,16 +1,19 @@
 import { ThemeProvider } from "@mui/material";
-import { ColorModeContext, useMode } from "../../theme";
+import { ColorModeContext, tokens, useMode } from "../../theme";
 import styles from './styles.module.scss';
 import MainSidebar from "../../components/Sidebar/Sidebar";
 import Topbar from "../../components/Topbar/Topbar";
 import { ReactNode, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import { Outlet, useLocation } from "react-router-dom";
+import PageTransitionWrapper from "../../components/PageTransitionWrapper/PageTransitionWrapper";
 // import from '.../styles/varialble.scss';
 // 
 const MainLayout = () => {
     const { theme, colorMode } = useMode();
     const location = useLocation();
+    const colors = tokens(theme.palette.mode);
+
     useEffect(() => {
         // Lưu trang trước đó vào sessionStorage nếu không phải trang login hoặc register
         if (location.pathname !== "/signin" && location.pathname !== "/register") {
@@ -25,10 +28,14 @@ const MainLayout = () => {
                         <div className={styles.left__screen}>
                             <MainSidebar />
                         </div>
-                        <div className={styles.right__screen}>
+                        <div className={styles.right__screen} style={{
+                            backgroundColor: colors.grey[800]
+                        }}>
                             <Topbar />
                             <div className={styles.contain__pages_detail}>
-                                <Outlet />  {/* Đây là chỗ các route con sẽ render */}
+                                <PageTransitionWrapper>
+                                    <Outlet />  {/* Đây là chỗ các route con sẽ render */}
+                                </PageTransitionWrapper>
                             </div>
                             <Footer />
                         </div>

@@ -1,0 +1,759 @@
+.nav__bg_hack {}
+
+.feed__header {
+    padding: 7.6rem 3rem 3rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(151.59deg, #fa005a -21.39%, #280033 47.58%), #520044;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img__feed_header_logo {
+    width: 30rem;
+}
+
+.form__container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.search__box {
+    width: 100%;
+    display: block;
+    margin: 24px auto;
+}
+
+.search__box__container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: auto;
+    background-color: #280033;
+    padding: 6px 12px 6px 12px;
+    border: 2px solid #f9edd8;
+    border-radius: 100px;
+
+}
+
+.search__box__search_label {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    margin-right: 6px;
+    height: 3rem;
+}
+
+.search__box__search_label_text {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    height: 24px;
+    margin-right: 6px;
+    color: #fff;
+}
+
+.search__box__input_search_box {
+    color: #f9edd8;
+    width: 100%;
+    outline: none;
+    background: none;
+    border: 0 transparent;
+    display: block;
+}
+
+.search__box__search_submit {
+    display: inherit;
+    border: 0 transparent;
+    border-radius: 50px;
+    height: 2.8rem;
+    width: 2.8rem;
+    background: #f9edd8;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.8rem;
+}
+
+.search__box .search__box__input_search_box {
+    padding: 0 1rem;
+    font-family: Rubik, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.contain__main__card {}
+
+.contain__header__card {
+    position: relative;
+}
+
+.contain__header__card_img {
+    width: 100%;
+    height: 10rem;
+
+}
+
+.contain__header__card_cate {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #fa005a;
+    // padding: 1rem;
+}
+
+.contain__header__card_cate_detail {
+    color: #fff;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    display: block;
+    line-height: 28px;
+    padding: 0.2rem 1rem;
+}
+
+.a__list__card__text {
+    background: #280033;
+    height: 100%;
+    padding: 12px;
+}
+
+.a__list__card__text_detail {
+    color: #fff;
+    display: flex;
+    font-style: normal;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 2.2rem;
+    margin: 0;
+    height: 15.6rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    text-overflow: ellipsis;
+}
+
+.sliderContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0 0.5rem;
+}
+
+.swiper {
+    width: 100%;
+    padding: 20px 0;
+}
+
+:global(.swiper-wrapper) {
+    display: flex !important;
+}
+
+.swiper__slide_item {
+    position: relative;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.prevButton,
+.nextButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 0;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.prevButton {
+    left: 10px;
+}
+
+.nextButton {
+    right: 10px;
+}
+
+.prevButton:hover,
+.nextButton:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.top__wikis__block {
+    background-color: #280033;
+    margin: 0;
+    width: 100%;
+}
+
+.top__wikis__block__bounding_container {
+    // -webkit-box-align: center;
+    // -ms-flex-align: center;
+    align-items: center;
+    // display: -webkit-box;
+    // display: -ms-flexbox;
+    display: flex;
+    // -webkit-box-orient: horizontal;
+    // -webkit-box-direction: normal;
+    // -ms-flex-direction: row;
+    flex-direction: row;
+    // -webkit-box-pack: justify;
+    // -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1302px;
+    padding: 12px 0 18px;
+    gap: 8px;
+}
+
+.top__wikis__block__item_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin: 0;
+
+}
+
+.top__wikis__block__item_container.is__first {
+    margin-bottom: 1.2rem;
+}
+
+.top__wikis__block__item_container.explore__more__wikis_container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 4px;
+}
+
+.top__wikis__block__title_block {
+    background-color: #ffc500;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 159px;
+    align-items: center;
+}
+
+.top__wikis__block__icon {
+    fill: #280033;
+    margin: 9px 4.5px 9px 12px;
+    height: 18px;
+    min-width: 18px;
+    width: 18px;
+    font-size: 1.6rem;
+}
+
+.top__wikis__block__title {
+    color: #280033;
+    font-size: 1.6rem;
+    font-weight: 900;
+    line-height: 21px;
+    margin: 8px 0 8px 4.5px;
+    text-transform: uppercase;
+}
+
+.top__wikis__block__wiki_category_title {
+    color: #ffc500;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 21px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.top__wikis__block__wiki_category_item {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 21px;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.top__wikis__block .divider {
+    width: 0;
+    height: 93px;
+    border-left: 1px solid #fff;
+    opacity: .25;
+    margin: 0 18px 0 12px;
+}
+
+.top__wikis__block__explore_text {
+    font-size: 1.6rem;
+    line-height: 17px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.top__wikis__block__explore_arrow {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-preferred-size: 36px;
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+    background-color: #ffc500;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.wds__icon {
+    height: 24px;
+    min-width: 24px;
+    width: 24px;
+    color: #280033;
+}
+
+.feed__layout__wrapper {
+    margin: 0;
+    width: 100%;
+}
+
+.feed__section {
+    border-top: 10px solid #fa005a;
+}
+
+.feed__section__content_well {
+    margin: 0 auto;
+    padding: 0 6px 30px;
+    max-width: 1302px;
+}
+
+.feed__section__heading {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.feed__section__heading_title {
+    background-color: #fa005a;
+    border-top: 10px solid #520044;
+    color: #fff;
+    display: inline-block;
+    font-size: 24px;
+    margin: -10px 0 0;
+    padding: 10px 18px;
+    text-transform: uppercase;
+}
+
+.feed__section__heading_link {
+    // color: #520044;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-left: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.feed__section__heading_icon {
+    height: 24px;
+    min-width: 24px;
+    width: 24px;
+}
+
+.feed__section__content {
+    padding-top: 3rem;
+}
+
+.feed__popular__wikis {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin: 0 12px;
+}
+
+.popular__wikis__title {
+    margin-bottom: 24px;
+    font-size: 2rem;
+    line-height: 22.5px;
+    font-weight: 700;
+    color: #520044;
+}
+
+.popular__wikis__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    gap: 14px;
+}
+
+.popular__wikis__wrapper__link {
+    text-decoration: none;
+    margin-bottom: 1rem;
+    display: block;
+    color: #520044;
+    -ms-flex-preferred-size: calc(12.5% - 14px);
+}
+
+.popular__wiki__container {
+    font-size: 1.6rem;
+}
+
+.popular__wiki__container__image_wrapper {
+    display: block;
+    position: relative;
+    border-bottom: 3px solid #fa005a;
+    margin-bottom: 6px;
+}
+
+.popular__wiki__container_img {
+    width: 100%;
+    height: 15rem;
+    ;
+    object-fit: cover;
+}
+
+.popular__wiki__container_title {
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+}
+
+.sub__title__container {
+    display: flex;
+    align-items: center;
+    line-height: 1.8rem;
+    gap: 8px;
+}
+
+.feed__section__news__stories_topic {
+    margin: 30.5px 0 18.5px;
+}
+
+.feed__section__cards {}
+
+.feed__card {
+    flex-basis: 32%;
+    margin-bottom: 3rem;
+
+}
+
+.feed__card.with__ad {
+    flex-basis: 49%;
+    margin-bottom: 3rem;
+}
+
+.feed__card_item_link {
+    text-decoration: none;
+}
+
+.img__feed_header {
+    width: 100%;
+}
+
+.feed__card__inner {
+    margin-top: -74px;
+    position: relative;
+    text-align: center;
+}
+
+.feed__card__attribution {
+    background-color: #fa005a;
+    color: #f8f8f8;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 500;
+    height: 2.2rem;
+    line-height: 21px;
+    padding: 3px 13px;
+}
+
+.feed__card__time {
+    font-weight: 400;
+}
+
+.feed__card__title_summary {
+    background-color: #fff;
+    width: 90%;
+    margin: auto;
+}
+
+.feed__card__title {
+    color: #282628;
+    font-size: 2.8rem;
+    font-weight: 500;
+    line-height: 2.9rem;
+    padding: 8px;
+    height: 9.7rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    margin-bottom: 0.4rem;
+}
+
+.feed__card__summary {
+    color: #520044;
+    font-size: 1.6rem;
+    line-height: 21px;
+    padding: 0 8px 8px;
+    font-weight: 500;
+}
+
+.search__box__bottom__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(41, 0, 34, 0.5), rgba(41, 0, 34, 0.5)), url(https://static.wikia.nocookie.net/a1b620c0-0b7c-478f-ae53-3ddc8870ccdf), #280033;
+    background-position: right 50%;
+}
+
+.newsletter {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    background-color: #520044;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 30px 30px 0;
+    position: relative;
+}
+
+.newsletter__info {
+    max-width: 490px;
+}
+
+.newsletter__heading {
+    color: #ffc500;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 45px;
+    margin: 0 0 12px;
+    text-transform: uppercase;
+}
+
+.newsletter__small__heading {
+    margin-bottom: 1.2rem;
+    font-size: 2rem;
+}
+
+.newsletter__email {
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-width: 0 0 1px;
+    color: #fff;
+    margin-bottom: 16px;
+    outline: none;
+    width: 100%;
+    font-size: 1.8rem;
+}
+
+.newsletter__submit {
+    background-color: #ffc500 !important;
+    border-color: #ffc500 !important;
+    color: #520044;
+    cursor: pointer;
+    font-size: 1.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+    padding: 0.4rem 1.4rem;
+}
+
+.newsletter__graphic {
+    line-height: 0;
+}
+
+.newsletter__graphic_img {
+    width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+    .search__box {
+        max-width: 800px;
+    }
+
+    .top__wikis__block__bounding_container {
+        padding: 30px 42px;
+    }
+
+    .top__wikis__block__explore_text {
+        width: 14rem;
+    }
+
+    .popular__wikis__wrapper__link {
+        width: 100%;
+        flex-basis: calc(16.6666666667% - 14px);
+    }
+
+    .newsletter {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        padding-top: 85px;
+    }
+
+    .newsletter__graphic_img {
+        width: 501px;
+    }
+
+}
+
+@media only screen and (max-width: 1023px) {
+
+    .popular__wikis__wrapper {
+        flex-wrap: wrap;
+    }
+
+    .newsletter__info {
+        padding-bottom: 22px;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .popular__wikis__wrapper__link {
+        -ms-flex-preferred-size: calc(50% - 14px);
+        flex-basis: calc(50% - 14px);
+    }
+
+    .popular__wikis__wrapper__link.with__ad {
+        // flex-basis: calc(50% - 14px);
+    }
+
+    .top__wikis__block__bounding_container {
+        flex-wrap: wrap;
+        padding: 18px 42px 12px;
+    }
+
+    .top__wikis__block__item_container.is__first {
+        flex-basis: 100%;
+
+    }
+
+    .top__wikis__block__item_container.is__last {
+        margin-top: 18px;
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+        justify-content: flex-start;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    .feed__header {
+        background: url(https://static.wikia.nocookie.net/0dfbc1cb-6311-45e0-8b74-fc965ca9afc7), -webkit-linear-gradient(298.53deg, #fa005a -21.32%, #280033 77.37%), #520044;
+    }
+
+    .feed__section__content_well {
+        padding: 0 30px 30px;
+    }
+
+    .feed__popular__wikis {
+        margin: 0;
+    }
+
+    .feed__section__cards {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+
+    .newsletter__email {
+        width: 255px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .popular__wikis__wrapper {
+        gap: 6px;
+    }
+
+    .popular__wikis__wrapper__link {
+        flex-basis: calc(33.3333333333% - 6px);
+    }
+
+    .top__wikis__block__bounding_container {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .top__wikis__block .divider {
+        border-top: 1px solid #fff;
+        height: 0;
+        width: 100%;
+        margin: 12px 0;
+    }
+
+    .top__wikis__block__item_container {
+        -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+        align-items: center !important;
+    }
+
+    .top__wikis__block__item_container.explore__more__wikis_container {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        text-align: center;
+    }
+    .top__wikis__block__explore_text{
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {}

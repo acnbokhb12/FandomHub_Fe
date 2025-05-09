@@ -1,0 +1,131 @@
+.wds__global__footer {}
+
+.global__footer {
+    --global-footer-links-in-column: 2;
+    background-color: #280033;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
+    // margin-top: 30px;
+    word-wrap: break-word;
+}
+.global__footer__header{
+    line-height: 0;
+    margin-bottom: 42px;
+    text-align: center;
+}
+.global__footer__content {
+    padding: 42px 28px 36px;
+    width: 100%;
+}
+
+.global__footer__section_header {
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-bottom: 6px;
+    // font-size: ;
+}
+
+.global__footer__section_header,
+.global__footer__switch_view {
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 1.2rem;
+}
+
+.global__footer__links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.global__footer__link {
+    font-weight: 400;
+    line-height: 2.7;
+    transition: color .3s;
+}
+
+.global__footer__link {
+    font-size: 1.5rem;
+    color: #ffc500;
+    text-decoration: none;
+}
+
+.global__footer__section__header {
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.global__footer__links_icon {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 18px);
+    grid-gap: 18px;
+}
+
+.global__footer__section__fandom__stores {
+    align-items: flex-start;
+    display: flex;
+    line-height: 0;
+    margin-bottom: 18px;
+    margin-top: 12px;
+    padding-bottom: 18px;
+    position: relative;
+}
+
+.global__footer__icon{
+    border-radius: 6px;
+    height: 78px;
+    margin: 0 18px 0 0;
+    overflow: hidden;
+    width: 78px;
+}
+.global__footer__link__icon{
+    height: 35px;
+    width: 119px;
+}
+
+.global__footer__link_icon_detail{
+    font-size: 2rem;
+    color: #f9edd8;
+    transition: color .3s;
+}
+.global__footer__section__community .global__footer__links,
+.global__footer__section__site__overview .global__footer__links,
+.global__footer__section__fandom__overview .global__footer__links{
+    column-count: var(--global-footer-links-in-column);
+    column-gap: 30px;
+
+}
+@media only screen and (min-width: 1024px) {
+    .global__footer {
+        --global-footer-links-in-column: unset;
+    }
+
+    .global__footer__content {
+        display: grid;
+        grid-column-gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+        margin: 0 auto;
+        max-width: 1024px;
+        padding: 70px 20px 40px;
+    }
+
+    .global__footer__header {
+        margin-bottom: 24px;
+        text-align: left;
+    }
+
+    .global__footer__link {
+        line-height: 2;
+    }
+
+    .global__footer__section__fandom__stores {}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .global__footer {
+        --global-footer-links-in-column: 3;
+    }
+}

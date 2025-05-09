@@ -1,0 +1,74 @@
+.Navigation_nav_btn {
+    padding: 9px 12px;
+    margin-top: 18px;
+    margin-left: 18px;
+    color: var(--fandom-text-color);
+    z-index: 10000;
+    position: absolute;
+    top: 180px;
+    left: 0;
+}
+
+.Navigation_back {
+    position: relative;
+    font-weight: 700;
+    font-family: Rubik, Helvetica Neue, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    text-align: right;
+    font-size: 12px;
+    border: none;
+    background-color: transparent;
+    padding-left: 24px;
+
+    span {
+        display: block;
+    }
+}
+
+.Navigation_back_icon {
+    height: 18px;
+    width: 24px;
+    fill: currentColor;
+    margin: auto 0;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.Navigation_back :hover {
+    color: var(--theme-accent-color);
+}
+
+.Navigation_mobileNav {
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .Navigation_nav_btn {
+        display: none;
+    }
+
+    .Navigation_mobileNav {
+        display: block;
+        color: #280033;
+        font-size: .875rem;
+        z-index: 999;
+        position: absolute;
+        top: 18px;
+        right: 18px;
+    }
+
+    .Navigation_mobileNav_btn {
+        background-color: transparent;
+        border: none;
+    }
+
+    .Navigation_close_icon {
+        width: 3rem;
+        height: 3rem;
+        color: #fff;
+    }
+}
