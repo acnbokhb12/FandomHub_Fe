@@ -1,8 +1,8 @@
 .container__sidebar { 
-    height: calc(100vh - 67px); 
+    height: calc(100vh - 4.6rem); 
     position: relative;
     display: flex ;
-    flex-direction: column;   
+    flex-direction: column;    
 }
 
 .sidebar :global(.css-dip3t8) {

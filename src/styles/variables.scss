@@ -4,15 +4,14 @@
     --theme-accent-color--hover: #b80099;
     --theme-page-text-color: #3a3a3a;
     --theme-page-text-color--hover: #6d6d6d;
-
+    --fandom-text-color-second: #f5f3f5;
     --fandom-text-color: #1e0c1b;
 }
 html {
     font-size: 62.5%;
     line-height: 1.6rem;
     font-family: "Open Sans", sans-serif;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+    box-sizing: border-box;   
 }
 body {
     

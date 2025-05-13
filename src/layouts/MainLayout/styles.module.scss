@@ -47,6 +47,14 @@
     margin-top:6.5rem;
 }
 .contain__pages_detail{
-    margin-top: 6.6rem;
+    margin-top: 4.6rem;
 }
   
+.pageTransition {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.show {
+  opacity: 1;
+}

@@ -4,14 +4,21 @@ import SignInForm from '../../components/SignIn/SignInForm';
 import styles from './styles.module.scss';
 import BackButton from '../../components/Back/BackButton';
 import PageTransitionWrapper from '../../components/PageTransitionWrapper/PageTransitionWrapper';
+import { useEffect } from 'react';
 
 const AuthPage = () => {
     const location = useLocation();
     const isSignIn = location.pathname === "/signin";
-
+    useEffect(() => {
+        if (isSignIn) {
+            document.title = "Sign in";
+        } else {
+            document.title = "Register";
+        }
+    }, [isSignIn]);
     return (
         <>
-            <PageTransitionWrapper> 
+            <PageTransitionWrapper>
                 <div className={styles.Auth__main}>
                     <BackButton />
                     <div className={styles.Auth__Layout}>

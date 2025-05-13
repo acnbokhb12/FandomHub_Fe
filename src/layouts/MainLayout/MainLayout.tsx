@@ -3,17 +3,17 @@ import { ColorModeContext, tokens, useMode } from "../../theme";
 import styles from './styles.module.scss';
 import MainSidebar from "../../components/Sidebar/Sidebar";
 import Topbar from "../../components/Topbar/Topbar";
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import { Outlet, useLocation } from "react-router-dom";
 import PageTransitionWrapper from "../../components/PageTransitionWrapper/PageTransitionWrapper";
+import ScrollToTop from "../../components/Scroll/ScrollToTop";
 // import from '.../styles/varialble.scss';
 // 
 const MainLayout = () => {
     const { theme, colorMode } = useMode();
     const location = useLocation();
-    const colors = tokens(theme.palette.mode);
-
+    const colors = tokens(theme.palette.mode); 
     useEffect(() => {
         // Lưu trang trước đó vào sessionStorage nếu không phải trang login hoặc register
         if (location.pathname !== "/signin" && location.pathname !== "/register") {
@@ -23,7 +23,7 @@ const MainLayout = () => {
     return (
         <>
             <ColorModeContext.Provider value={colorMode}>
-                <ThemeProvider theme={theme}>
+                <ThemeProvider theme={theme}> 
                     <div className={styles.app__container}>
                         <div className={styles.left__screen}>
                             <MainSidebar />

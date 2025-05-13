@@ -664,7 +664,9 @@ const ItemsWikisComponent = (propsss: any) => {
 }
 function HomePage() {
     console.log("render homepage")
-
+    useEffect(() => {
+        document.title = "Fandom";
+    }, []);
     return (
         <>
             <div className={styles.nav__bg_hack}>
