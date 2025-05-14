@@ -14,6 +14,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { BsBook } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { MdArrowRight } from "react-icons/md";
+import { Margin } from "@mui/icons-material";
 // import AdBanner from "../../Components/Advertisement/AdBanner";
 
 
@@ -606,7 +607,7 @@ const ItemsWikisComponent = (propsss: any) => {
                     </Link>
                 </div>
                 <div className={styles.feed__section__content}>
-                    <Row>
+                    <Row style={{margin: 0}}>
                         <Col md={props.advertisement ? 8 : 12}>
                             <div className={styles.feed__section__content_detail}>
                                 <div className={styles.feed__popular__wikis}>

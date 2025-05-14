@@ -1,60 +1,65 @@
- 
+ .app {
+     display: flex;
+     position: relative;
+ }
 
-.app {
-    display: flex;
-    position: relative;
-}
+ ::-webkit-scrollbar {
+     width: 10px;
+ }
 
-::-webkit-scrollbar {
-    width: 10px;
-}
+ /* Track */
+ ::-webkit-scrollbar-track {
+     background: #e0e0e0;
+ }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: #e0e0e0;
-}
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+     background: #888;
+ }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #888;
-}
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+     background: #555;
+ }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
+ .app__container {
+     display: flex;
+     // height: 100vh;
+     // overflow: hidden;
+ }
 
-.app__container {
-    display: flex;
-    // height: 100vh;
-    // overflow: hidden;
-}
+ .left__screen {
+     width: 80px;
+     z-index: 4;
+ }
 
-.left__screen {
-    width: 80px;
-    z-index:4;
-}
+ .right__screen {
+     flex: 1;
+     width: calc(100vw - 9rem);
+     position: relative;
+     z-index: 3;
+ }
 
-.right__screen {
-    flex: 1;    
-    width: calc(100vw - 9rem);
-    position: relative;
-    z-index: 3; 
-}
+ .container__pages {
+     width: 100%;
+     margin-top: 6.5rem;
+ }
 
-.container__pages { 
-    width: 100%;
-    margin-top:6.5rem;
-}
-.contain__pages_detail{
-    margin-top: 4.6rem;
-}
-  
-.pageTransition {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
+ .contain__pages_detail {
+     margin-top: 4.6rem;
+ }
 
-.show {
-  opacity: 1;
-}
+ .pageTransition {
+     opacity: 0;
+     transition: opacity 0.4s ease;
+ }
+
+ .show {
+     opacity: 1;
+ }
+
+ @media only screen and (max-width: 768px) {
+     .left__screen {
+         display: none;
+     }
+ }
