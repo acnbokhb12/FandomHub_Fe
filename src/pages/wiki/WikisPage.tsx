@@ -7,6 +7,7 @@ const  WikisPage = () => {
     return (
         <>
             <h1 style={{color:colors.grey[200]}}>WikisPage : {slug}</h1>
+            <h2>HIHI</h2>
         </>
     )
 };
