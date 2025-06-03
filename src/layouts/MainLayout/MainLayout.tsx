@@ -1,14 +1,13 @@
 import { ThemeProvider } from "@mui/material";
-import { ColorModeContext, tokens, useMode } from "../../theme";
+import { ColorModeContext, tokens, useMode } from 'src/theme';
 import styles from './styles.module.scss';
-import MainSidebar from "../../components/Sidebar/Sidebar";
-import Topbar from "../../components/Topbar/Topbar";
-import { ReactNode, useEffect, useState } from "react";
+import MainSidebar from 'components/Sidebar/Sidebar';
+import Topbar from 'components/Topbar/Topbar';
+import { useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import { Outlet, useLocation } from "react-router-dom";
-import PageTransitionWrapper from "../../components/PageTransitionWrapper/PageTransitionWrapper";
-import ScrollToTop from "../../components/Scroll/ScrollToTop";
-// import from '.../styles/varialble.scss';
+import PageTransitionWrapper from 'components/PageTransitionWrapper/PageTransitionWrapper';
+// import ScrollToTop from "../../components/Scroll/ScrollToTop"; 
 // 
 const MainLayout = () => {
     const { theme, colorMode } = useMode();

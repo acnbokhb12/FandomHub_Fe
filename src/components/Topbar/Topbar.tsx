@@ -1,17 +1,15 @@
-import { FaHome, FaRegUserCircle } from 'react-icons/fa';
-import styles from './styles.module.scss';
-import { RiDiscussLine } from "react-icons/ri";
-import { BsBook } from 'react-icons/bs';
-import { useColors } from '../../hooks/useColors';
+import {FaRegUserCircle } from 'react-icons/fa';
+import styles from './styles.module.scss'; 
+// import { useColors } from '../../hooks/useColors';
 import { useContext, useEffect, useRef, useState } from 'react';
-import { ColorModeContext, tokens } from '../../theme';
+import { ColorModeContext, tokens } from 'src/theme';
 import { Box, IconButton, InputBase, useTheme } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { GiHamburgerMenu } from "react-icons/gi";
 import SearchIcon from "@mui/icons-material/Search";
 import clsx from 'clsx';
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import { IoIosArrowDown, IoIosArrowForward, IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
+// import { IoIosArrowDown, IoIosArrowForward, IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 

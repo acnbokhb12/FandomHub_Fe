@@ -1,4 +1,7 @@
 export const ROUTES = {
-    HOME: "/",
-    ABOUT: "/about",
-  };
+  HOME: '/',
+  ABOUT: 'about',
+  WIKI: 'wiki',
+  REGISTER: '/register',
+  SIGNIN: '/signin',
+};

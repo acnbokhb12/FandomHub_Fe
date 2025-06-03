@@ -1,5 +1,5 @@
 import { Box, colors, IconButton, Typography, useTheme } from "@mui/material";
-import { tokens } from "../../theme";
+import { tokens } from 'src/theme';
 import "bootstrap/dist/css/bootstrap.min.css";
 import clsx from "clsx";
 import styles from './styles.module.scss';
@@ -532,7 +532,6 @@ const CardComponent = (props: any) => {
     )
 }
 
-
 const ItemWikiComponent = (props: any) => {
     const { idItem, titleItem, nameCharItem, imgItem, adBanners } = props;
     const theme = useTheme();
@@ -607,7 +606,7 @@ const ItemsWikisComponent = (propsss: any) => {
                     </Link>
                 </div>
                 <div className={styles.feed__section__content}>
-                    <Row style={{margin: 0}}>
+                    <Row style={{ margin: 0 }}>
                         <Col md={props.advertisement ? 8 : 12}>
                             <div className={styles.feed__section__content_detail}>
                                 <div className={styles.feed__popular__wikis}>
@@ -663,7 +662,7 @@ const ItemsWikisComponent = (propsss: any) => {
         </div>
     )
 }
-function HomePage() {
+const HomePage = () => {
     console.log("render homepage")
     useEffect(() => {
         document.title = "Fandom";
@@ -810,7 +809,7 @@ function HomePage() {
                     </div>
                 </div>
             </div>
-            <div className={styles.feed__layout__wrapper}>
+            <div className={styles.feed__layout__wrapper}>  
                 {
                     listWikisHomeFandomAd.map((item) => (
                         <ItemsWikisComponent

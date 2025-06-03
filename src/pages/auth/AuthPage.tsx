@@ -1,10 +1,11 @@
 import { useLocation } from 'react-router-dom';
-import RegisterForm from '../../components/Register/RegisterForm';
-import SignInForm from '../../components/SignIn/SignInForm';
+import RegisterForm from 'components/Register/RegisterForm';
+import SignInForm from 'components/SignIn/SignInForm';
 import styles from './styles.module.scss';
-import BackButton from '../../components/Back/BackButton';
-import PageTransitionWrapper from '../../components/PageTransitionWrapper/PageTransitionWrapper';
+import BackButton from 'components/Back/BackButton';
+import PageTransitionWrapper from 'components/PageTransitionWrapper/PageTransitionWrapper';
 import { useEffect } from 'react';
+import logo from 'assets/img/logo/Site-logo-removebg-preview.png';
 
 const AuthPage = () => {
     const location = useLocation();
@@ -33,7 +34,7 @@ const AuthPage = () => {
                                 The world's largest fan-generated entertainment & gaming platform.
                             </p>
                             <span className={styles.AuthLayout_header_icon}>
-                                <img className={styles.AuthLayout_header_icon_img} src="https://wiki.archiveteam.org/images/b/bc/Fandom-icon.png" alt="" />
+                                <img className={styles.AuthLayout_header_icon_img} src={logo} alt="" />
                             </span>
                         </div>
                         <div className={styles.AuthLayout_content}>

@@ -1,6 +1,5 @@
 import { useState } from "react";
-import styles from './styles.module.scss';
-import { FaGoogle, FaLock, FaUser } from "react-icons/fa";
+import styles from './styles.module.scss'; 
 import clsx from "clsx";
 import { DiscordLoginButton, FacebookLoginButton, GoogleLoginButton, LinkedInLoginButton, TwitterLoginButton } from "react-social-login-buttons";
 import { Link } from "react-router-dom";
