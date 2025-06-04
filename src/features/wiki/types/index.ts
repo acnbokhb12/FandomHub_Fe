@@ -33,3 +33,9 @@ export interface WikiPageResponse {
   UpdatedAt: Date;
   Community: CommunityResponse | null;
 }
+
+export interface ItemsWikisProps {
+  hubID: number;
+  articleCategoryID: number;
+  advertisement?: boolean;
+}

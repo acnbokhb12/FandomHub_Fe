@@ -1,4 +1,4 @@
-export interface CommunityResponse {
+ interface CommunityResponse {
     WikiId : number,
     Title : string | null,
     SubTitle : string | null,
