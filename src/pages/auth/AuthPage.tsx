@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import RegisterForm from '@/components/Register/RegisterForm';
-import SignInForm from '@/components/SignIn/SignInForm';
+import RegisterForm from '@/features/auth/components/Register/index';
+import SignInForm from '@/features/auth/components/Sigin/index';
 import styles from './styles.module.scss';
 import BackButton from '@/components/Back/BackButton';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper/PageTransitionWrapper';
