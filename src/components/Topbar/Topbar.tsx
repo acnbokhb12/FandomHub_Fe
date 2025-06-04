@@ -2,7 +2,7 @@ import {FaRegUserCircle } from 'react-icons/fa';
 import styles from './styles.module.scss'; 
 // import { useColors } from '../../hooks/useColors';
 import { useContext, useEffect, useRef, useState } from 'react';
-import { ColorModeContext, tokens } from 'src/theme';
+import { ColorModeContext, tokens } from '@/theme';
 import { Box, IconButton, InputBase, useTheme } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { GiHamburgerMenu } from "react-icons/gi";

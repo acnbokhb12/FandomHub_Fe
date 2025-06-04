@@ -1,5 +1,5 @@
 import { Box, colors, IconButton, Typography, useTheme } from "@mui/material";
-import { tokens } from 'src/theme';
+import { tokens } from '@/theme';
 import "bootstrap/dist/css/bootstrap.min.css";
 import clsx from "clsx";
 import styles from './styles.module.scss';

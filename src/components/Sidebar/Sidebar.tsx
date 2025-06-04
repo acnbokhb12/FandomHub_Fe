@@ -2,7 +2,7 @@ import { Box, colors, IconButton, Typography, useTheme } from "@mui/material";
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import styles from './sidebar.module.scss';
 import { Link } from "react-router-dom";
-import { useColors } from 'hooks/useColors';
+import { useColors } from '@/hooks/useColors';
 import { useState } from "react";
 import { IoPeopleSharp } from "react-icons/io5";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";

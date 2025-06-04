@@ -1,5 +1,5 @@
 import { useTheme } from "@mui/material/styles";
-import { tokens } from "../theme"; 
+import { tokens } from "@/theme"; 
 
 export const useColors = () => {
   const theme = useTheme();

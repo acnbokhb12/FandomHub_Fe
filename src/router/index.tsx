@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom"
-import MainLayout from 'layouts/MainLayout/MainLayout'
-import HomePage from 'pages/home/HomePage';
-import AuthPage from 'pages/auth/AuthPage';
-import AboutPage from 'pages/about/AboutPage';
-import WikisPage from 'pages/wiki/WikisPage';
-import { ROUTES } from 'router/path';
+import MainLayout from '@/layouts/MainLayout/MainLayout'
+import HomePage from '@/pages/home/HomePage';
+import AuthPage from '@/pages/auth/AuthPage';
+import AboutPage from '@/pages/about/AboutPage';
+import WikisPage from '@/pages/wiki/WikisPage';
+import { ROUTES } from '@/router/path';
 import { ReactElement } from "react";
 
 interface AppRoute {

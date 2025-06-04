@@ -1,11 +1,11 @@
 import { useLocation } from 'react-router-dom';
-import RegisterForm from 'components/Register/RegisterForm';
-import SignInForm from 'components/SignIn/SignInForm';
+import RegisterForm from '@/components/Register/RegisterForm';
+import SignInForm from '@/components/SignIn/SignInForm';
 import styles from './styles.module.scss';
-import BackButton from 'components/Back/BackButton';
-import PageTransitionWrapper from 'components/PageTransitionWrapper/PageTransitionWrapper';
+import BackButton from '@/components/Back/BackButton';
+import PageTransitionWrapper from '@/components/PageTransitionWrapper/PageTransitionWrapper';
 import { useEffect } from 'react';
-import logo from 'assets/img/logo/Site-logo-removebg-preview.png';
+import logo from '@/assets/img/logo/Site-logo-removebg-preview.png';
 
 const AuthPage = () => {
     const location = useLocation();
