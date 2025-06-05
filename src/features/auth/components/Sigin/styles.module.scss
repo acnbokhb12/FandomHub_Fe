@@ -53,11 +53,13 @@
     flex-direction: column;
     gap: 6px;
 }
-.input_label{
+
+.input_label {
     font-size: 1.4rem;
     color: #1e0c1b;
     font-weight: 500;
 }
+
 .input__field {
     border: 1px solid #595358;
     border-radius: 6px;
@@ -67,11 +69,12 @@
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     transition: all .3s ease;
-    background-color:  #fff;
+    background-color: #fff;
     font-size: 1.6rem;
 
 }
-.Password_bottomAction{
+
+.Password_bottomAction {
     padding-top: 0;
     text-align: left;
     font-size: 12px;
@@ -80,16 +83,19 @@
     margin-bottom: 18px;
     color: var(--fandom-link-color);
     text-decoration: none;
-} 
-.Password_bottomAction:hover{
+}
+
+.Password_bottomAction:hover {
     color: var(--fandom-link-color);
     text-decoration: underline;
 }
-.Submit_buttonWrapper{
+
+.Submit_buttonWrapper {
     margin-top: 10px;
     margin-bottom: 0;
 }
-.button__submit { 
+
+.button__submit {
     background-color: var(--theme-accent-color);
     border: none;
     color: white;
@@ -113,37 +119,59 @@
     background-color: #151717;
     cursor: unset;
 }
-.TermsOfUse_termsOfUse{
+
+.TermsOfUse_termsOfUse {
     font-size: 12px;
     line-height: 1.5;
     text-align: left;
     margin-top: 12px;
 }
-.TermsOfUse_termsOfUse a{
+
+.TermsOfUse_termsOfUse a {
     font-weight: 700;
     color: var(--fandom-link-color);
     text-decoration: none;
 }
-.TermsOfUse_termsOfUse a:hover{
+
+.TermsOfUse_termsOfUse a:hover {
     text-decoration: underline;
 
 }
-.RegisterLink_wrapper{
+
+.RegisterLink_wrapper {
     margin-top: 24px;
     text-align: center;
 }
-.RegisterLink_signin_link{
+
+.RegisterLink_signin_link {
     font-size: 14px;
 }
-.RegisterLink_url{
+
+.RegisterLink_url {
     color: var(--fandom-link-color);
     font-weight: 700;
     text-decoration: none;
 }
-.RegisterLink_url:hover{
+
+.RegisterLink_url:hover {
     text-decoration: underline;
     color: var(--fandom-link-color);
 }
+
+.fail_login {
+    line-height: 1.5rem;
+    letter-spacing: 0.2px;
+    color: #bf0017;
+    gap: 4px;
+    margin: 9px 0 5px 0;
+}
+
+.fail_login_text {
+    color: #bf0017;
+    font-size: 12px;
+    font-weight: 500;
+}
+
 @media only screen and (max-width: 767px) {
     .signin_formWrapper {
         margin: 0;

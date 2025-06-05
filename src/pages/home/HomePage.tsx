@@ -11,7 +11,7 @@ import { Navigation, Autoplay } from "swiper/modules";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { BsBook } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import HomeWikiSectionComponent from "@/features/wiki/components/wiki-section"; 
+import HomeWikiSectionComponent from "@/features/wiki/components/wiki-section";
 
 
 const listInfor = [
@@ -111,11 +111,9 @@ const listInfor = [
             nameCate: "Movies"
         }
     },
-] 
+]
 const CardComponent = (props: any) => {
     const { titleIn, headerIn, textIn, id, img, cate } = props;
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
     return (
         <Card className={styles.contain__main__card} style={{ marginBottom: "1.5rem" }}>
             <Card.Header style={{ padding: 0 }}>
@@ -138,10 +136,11 @@ const CardComponent = (props: any) => {
         </Card>
     )
 }
- 
+
 const HomePage = () => {
     console.log("render homepage")
     useEffect(() => {
+         
         document.title = "Fandom";
     }, []);
     return (
@@ -194,7 +193,7 @@ const HomePage = () => {
                                     />
                                 </SwiperSlide>
                             ))}
-                        </Swiper> 
+                        </Swiper>
                         <button className={styles.prevButton}>
                             <AiOutlineLeft size={30} />
                         </button>
@@ -285,9 +284,9 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.feed__layout__wrapper}>  
+            <div className={styles.feed__layout__wrapper}>
                 <HomeWikiSectionComponent hubID={1} articleCategoryID={1} />
-                <HomeWikiSectionComponent hubID={1} articleCategoryID={1} /> 
+                <HomeWikiSectionComponent hubID={1} articleCategoryID={1} />
             </div>
             <div className={styles.search__box__bottom__wrapper}>
                 <div className={styles.form__container}>

@@ -1,13 +1,46 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from './styles.module.scss';
-import { FaGoogle, FaLock, FaUser } from "react-icons/fa";
 import clsx from "clsx";
-import { DiscordLoginButton, FacebookLoginButton, GoogleLoginButton, LinkedInLoginButton, TwitterLoginButton } from "react-social-login-buttons";
-import { Link } from "react-router-dom";
+import { DiscordLoginButton, FacebookLoginButton, GoogleLoginButton, TwitterLoginButton } from "react-social-login-buttons";
+import { Link, useNavigate } from "react-router-dom";
+import { signin } from '@/features/auth/services/authService';
+import { useForm } from 'react-hook-form';
+import { SigninPayload } from '@/features/auth/types';
+import { RiErrorWarningLine } from "react-icons/ri";
+import { useSignIn } from 'react-auth-kit';
+import { s } from "framer-motion/dist/types.d-CQt5spQA";
 
 const SignInForm = () => {
-
-    // const handleClose = () => setShow(false); // Hàm đóng modal
+    const { register, handleSubmit, reset, formState: { errors, isValid } } = useForm<SigninPayload>({
+        mode: 'onChange'
+    });
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const navigate = useNavigate();
+    const submitBtn = useRef<HTMLButtonElement>(null);
+    const signIn = useSignIn();
+    const submitForm = async (data: SigninPayload) => {
+        if (submitBtn.current) submitBtn.current.disabled = true;
+        try {
+            const res = await signin(data);
+            // sessionStorage.setItem('token', res.token); 
+            const success = signIn({
+                token: res.token,
+                expiresIn: 7200,
+                tokenType: "Bearer",
+                authState: { user: res.user },
+            });
+            if (success)
+                navigate('/');
+            else
+                setErrorMessage("Login failed.");
+        } catch (err: any) {
+            const msg = err.response.data?.message || "An error occurred.";
+            setErrorMessage(msg);
+            reset({ username: '', password: '' });
+        } finally {
+            if (submitBtn.current) submitBtn.current.disabled = false;
+        }
+    }
     return (
         <>
             <div className={styles.signin_formWrapper}>
@@ -16,25 +49,43 @@ const SignInForm = () => {
                         <h6 className={clsx(styles.signin_sectionTitle, styles.signin_sectionSocialTitle)}>
                             Sign in
                         </h6>
-                        <div className={styles.TextInput_inputs}>
-                            <div className={styles.input_group}>
-                                <label htmlFor="username" className={styles.input_label}>Username</label>
-                                <input type="text" id="username" placeholder="Username" className={styles.input__field} />
+                        <form onSubmit={handleSubmit(submitForm)}>
+                            <div className={styles.TextInput_inputs}>
+                                <div className={styles.input_group}>
+                                    <label htmlFor="username" className={styles.input_label}>Username</label>
+                                    <input type="text" id="username"
+                                        placeholder="Username" className={styles.input__field}
+                                        {...register('username', { required: 'Username is required' })}
+                                    />
+                                </div>
+                                <div className={styles.input_group}>
+                                    <label htmlFor="password" className={styles.input_label}>Password</label>
+                                    <input type="password" id="password"
+                                        placeholder="Password" className={styles.input__field}
+                                        {...register('password', { required: 'Password is required' })}
+                                    />
+                                </div>
+                                {errorMessage && (
+                                    <div className={clsx("d-flex", styles.fail_login)} >
+                                        <div>
+                                            <RiErrorWarningLine size={16} color="#bf0017" />
+                                        </div>
+                                        <div>
+                                            <span className={styles.fail_login_text}>{errorMessage}</span>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
-                            <div className={styles.input_group}>
-                                <label htmlFor="password" className={styles.input_label}>Password</label>
-                                <input type="password" id="password" placeholder="Password" className={styles.input__field} />
+                            <div >
+                                <Link to="/reset-password" className={styles.Password_bottomAction}>Forgot Password?</Link>
                             </div>
-                        </div>
-                        <div >
-                            <Link to="/reset-password" className={styles.Password_bottomAction}>Forgot Password?</Link>
-                        </div>
-                        <div className={styles.Submit_buttonWrapper}>
-                            <button
-                                className={clsx(styles.button__submit)}>
-                                Sign In
-                            </button> 
-                        </div>
+                            <div className={styles.Submit_buttonWrapper}>
+                                <button disabled={!isValid} type="submit" ref={submitBtn}
+                                    className={clsx(styles.button__submit)}>
+                                    Sign In
+                                </button>
+                            </div>
+                        </form>
                         <div className={styles.TermsOfUse_termsOfUse}>
                             By continuing, you agree to Fandom's <a href="https://www.fandom.com/terms-of-use" target="_blank" rel="noopener noreferrer">Terms of Use</a> and <a href="https://www.fandom.com/privacy-policy" target="_blank" rel="noopener noreferrer"> Privacy Policy</a>.
                         </div>
@@ -57,7 +108,7 @@ const SignInForm = () => {
                             onClick={() => console.log("Facebook login")} />
                         <DiscordLoginButton className={styles.smallSocialBtn}
                             onClick={() => console.log("Discord login")} />
-                        <TwitterLoginButton  className={styles.smallSocialBtn}
+                        <TwitterLoginButton className={styles.smallSocialBtn}
                             onClick={() => console.log("LinkedIn login")} />
                     </section>
                 </div>

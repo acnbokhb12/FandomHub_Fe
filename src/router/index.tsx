@@ -6,6 +6,7 @@ import AboutPage from '@/pages/about/AboutPage';
 import WikisPage from '@/pages/wiki/WikisPage';
 import { ROUTES } from '@/router/path';
 import { ReactElement } from "react";
+import PrivateRoute from '@/shared/components/PrivateRoute';       
 
 interface AppRoute {
    path?: string;
@@ -14,14 +15,16 @@ interface AppRoute {
    index?: boolean;
 }
 
-const routes = [
+const routes: AppRoute[] = [
    {
       path: ROUTES.HOME,
       element: <MainLayout />,
       children: [
          { index: true, element: <HomePage /> },
          { path: ROUTES.ABOUT, element: <AboutPage /> },
-         { path: `${ROUTES.WIKI}/:slug`, element: <WikisPage /> },
+         {
+            path: `${ROUTES.WIKI}/:slug`, element: <WikisPage />        
+         },
       ]
    },
    {

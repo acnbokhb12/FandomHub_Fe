@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 import RegisterForm from '@/features/auth/components/Register/index';
 import SignInForm from '@/features/auth/components/Sigin/index';
 import styles from './styles.module.scss';
-import BackButton from '@/components/Back/BackButton';
+import BackButton from '@/components/back/BackButton';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper/PageTransitionWrapper';
 import { useEffect } from 'react';
 import logo from '@/assets/img/logo/Site-logo-removebg-preview.png';
