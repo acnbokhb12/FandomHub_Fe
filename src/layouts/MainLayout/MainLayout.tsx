@@ -1,10 +1,10 @@
 import { ThemeProvider } from "@mui/material";
 import { ColorModeContext, tokens, useMode } from '@/theme';
 import styles from './styles.module.scss';
-import MainSidebar from '@/components/Sidebar/Sidebar';
-import Topbar from '@/components/Topbar/Topbar';
+import MainSidebar from '@/components/sidebar/Sidebar';
+import Topbar from '@/components/topbar/Topbar';
 import { useEffect } from "react";
-import Footer from '@/components/Footer/Footer';
+import Footer from '@/components/footer/Footer';
 import { Outlet, useLocation } from "react-router-dom";
 import PageTransitionWrapper from '@/components/PageTransitionWrapper/PageTransitionWrapper';
 // import ScrollToTop from "../../components/Scroll/ScrollToTop"; 
@@ -33,7 +33,7 @@ const MainLayout = () => {
                             <Topbar />
                             <div className={styles.contain__pages_detail}>
                                 <PageTransitionWrapper>
-                                    <Outlet />  {/* Đây là chỗ các route con sẽ render */}
+                                    <Outlet />  
                                 </PageTransitionWrapper>
                             </div>
                             <Footer />

@@ -3,12 +3,12 @@ import styles from './styles.module.scss';
 import clsx from "clsx";
 import { DiscordLoginButton, FacebookLoginButton, GoogleLoginButton, TwitterLoginButton } from "react-social-login-buttons";
 import { Link, useNavigate } from "react-router-dom";
-import { signin } from '@/features/auth/services/authService';
+import { signinService } from '@/features/auth/services/authService';
 import { useForm } from 'react-hook-form';
 import { SigninPayload } from '@/features/auth/types';
 import { RiErrorWarningLine } from "react-icons/ri";
 import { useSignIn } from 'react-auth-kit';
-import { s } from "framer-motion/dist/types.d-CQt5spQA";
+// import { s } from "framer-motion/dist/types.d-CQt5spQA";
 
 const SignInForm = () => {
     const { register, handleSubmit, reset, formState: { errors, isValid } } = useForm<SigninPayload>({
@@ -20,26 +20,26 @@ const SignInForm = () => {
     const signIn = useSignIn();
     const submitForm = async (data: SigninPayload) => {
         if (submitBtn.current) submitBtn.current.disabled = true;
-        try {
-            const res = await signin(data);
-            // sessionStorage.setItem('token', res.token); 
+
+        const res = await signinService(data);
+        if (res.success === true) {
             const success = signIn({
-                token: res.token,
+                token: res.data.token,
                 expiresIn: 7200,
                 tokenType: "Bearer",
-                authState: { user: res.user },
+                authState: { user: res.data.user },
             });
             if (success)
                 navigate('/');
             else
                 setErrorMessage("Login failed.");
-        } catch (err: any) {
-            const msg = err.response.data?.message || "An error occurred.";
+        }else{
+            const msg = res.message || "An error occurred.";
             setErrorMessage(msg);
             reset({ username: '', password: '' });
-        } finally {
-            if (submitBtn.current) submitBtn.current.disabled = false;
-        }
+        } 
+        if (submitBtn.current) submitBtn.current.disabled = false;
+
     }
     return (
         <>
