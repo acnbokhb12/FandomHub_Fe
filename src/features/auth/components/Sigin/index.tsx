@@ -1,43 +1,30 @@
-import { useState, useRef } from "react";
 import styles from './styles.module.scss';
 import clsx from "clsx";
+import { useRef } from "react";
 import { DiscordLoginButton, FacebookLoginButton, GoogleLoginButton, TwitterLoginButton } from "react-social-login-buttons";
 import { Link, useNavigate } from "react-router-dom";
-import { signinService } from '@/features/auth/services/authService';
 import { useForm } from 'react-hook-form';
-import { SigninPayload } from '@/features/auth/types';
+import { SigninPayload } from '@/api/auth/authTypes';
 import { RiErrorWarningLine } from "react-icons/ri";
-import { useSignIn } from 'react-auth-kit';
+import { useAuth } from '@/features/auth/hooks/useAuth';
 // import { s } from "framer-motion/dist/types.d-CQt5spQA";
 
 const SignInForm = () => {
     const { register, handleSubmit, reset, formState: { errors, isValid } } = useForm<SigninPayload>({
         mode: 'onChange'
     });
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
     const navigate = useNavigate();
     const submitBtn = useRef<HTMLButtonElement>(null);
-    const signIn = useSignIn();
+    const { sigin, errorMessage } = useAuth();
     const submitForm = async (data: SigninPayload) => {
         if (submitBtn.current) submitBtn.current.disabled = true;
 
-        const res = await signinService(data);
-        if (res.success === true) {
-            const success = signIn({
-                token: res.data.token,
-                expiresIn: 7200,
-                tokenType: "Bearer",
-                authState: { user: res.data.user },
-            });
-            if (success)
-                navigate('/');
-            else
-                setErrorMessage("Login failed.");
-        }else{
-            const msg = res.message || "An error occurred.";
-            setErrorMessage(msg);
-            reset({ username: '', password: '' });
-        } 
+        const success = await sigin(data);
+        if (success) {
+            // navigate('/');
+        }
+
         if (submitBtn.current) submitBtn.current.disabled = false;
 
     }

@@ -1,9 +1,9 @@
-export interface SigninPayload {
-    username: string;
+export type SigninPayload = {
+    username: string,
     password: string;
 }
 
-interface UserInfo {
+type UserInfo = {
   id: number;
   name: string;
   email: string;
@@ -14,6 +14,7 @@ type SigninSuccess = {
   success: true;
   data: {
     token: string;
+    refreshToken : string;
     user: UserInfo
   };
 };
@@ -23,3 +24,4 @@ type SigninFail = {
   message: string;
 };
 export type SigninResponse = SigninSuccess | SigninFail;
+ 
