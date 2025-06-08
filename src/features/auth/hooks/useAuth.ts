@@ -1,6 +1,6 @@
 import { useSignIn, useSignOut, useAuthUser } from 'react-auth-kit';
 import { authService } from '@/api';
-import { SigninPayload, SigninResponse } from '@/api';
+import { SigninPayload, RegisterPayLoad} from '@/api';
 import { useState } from 'react';
 
 export const useAuth = () => {
@@ -12,6 +12,7 @@ export const useAuth = () => {
     const sigin = async (data: SigninPayload) => {
         try {
             const res = await authService.signin(data);
+            console.log(res.success)
             if (res.success) {
                 const { token, refreshToken, user } = res.data;
                 const success = signIn({
@@ -33,11 +34,35 @@ export const useAuth = () => {
         }
     };
 
+    const register = async (data: RegisterPayLoad) => {
+    try {
+        const res = await authService.register(data);
+        if (res.success) {  
+            const { token, refreshToken, user } = res.data;
+            const success = signIn({
+                token,
+                expiresIn: 7200,
+                tokenType: 'Bearer',
+                authState: { user },
+                refreshToken,
+            });
+            sessionStorage.setItem('refreshToken', refreshToken);
+            return true;
+        } else {
+            setErrorMessage(res.message || 'Register failed');
+            return false;
+        }
+    } catch {
+        setErrorMessage('An unexpected error occurred.');
+        return false;
+    }
+};
+
     const logout = () => {
         signOut();
         sessionStorage.removeItem('refreshToken');
     };
 
-    return {sigin, logout, errorMessage};
+    return {sigin, logout, register, errorMessage};
 }
 

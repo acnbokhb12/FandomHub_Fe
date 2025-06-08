@@ -1,19 +1,31 @@
 // import { SigninResponse, SigninPayload } from '@/api/auth/authTypes';
 import { authApi } from '@/api/auth/authApi';
-import { SigninPayload, SigninResponse } from '@/api';
+import { SigninPayload, AuthResponse, RegisterPayLoad } from '@/api';
 
 export const authService = {
-    signin: async (payload: SigninPayload): Promise<SigninResponse> => {
+    signin: async (payload: SigninPayload): Promise<AuthResponse> => {
         try {
             const response = await authApi.sigin(payload); 
             return response;
-        } catch (error: any) { 
-            return { 
+        } catch (error: any) {
+            return {
                 success: false,
                 message: error.response?.data.message || 'An error occurred during sign-in.'
             };
         }
     },
+
+    register: async (payload: RegisterPayLoad): Promise<AuthResponse> => {
+        try {
+            const response = await authApi.register(payload);
+            return response;
+        } catch (error: any) {
+            return {
+                success: false,
+                message: error.response?.data?.message || 'An error occurred during registration.'
+            };
+        }
+    }
 }
 
 

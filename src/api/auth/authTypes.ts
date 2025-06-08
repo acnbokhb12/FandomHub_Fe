@@ -1,6 +1,13 @@
 export type SigninPayload = {
-    username: string,
-    password: string;
+  username: string,
+  password: string;
+}
+
+export type RegisterPayLoad = {
+  email: string,
+  userName: string,
+  password: string,
+  birthDay: Date
 }
 
 type UserInfo = {
@@ -10,18 +17,17 @@ type UserInfo = {
   // thêm các field khác nếu có
 }
 
-type SigninSuccess = {
+type AuthSuccess = {
   success: true;
   data: {
     token: string;
-    refreshToken : string;
+    refreshToken: string;
     user: UserInfo
   };
 };
 
-type SigninFail = {
+type AuthFail = {
   success: false;
   message: string;
 };
-export type SigninResponse = SigninSuccess | SigninFail;
- 
+export type AuthResponse = AuthSuccess | AuthFail;

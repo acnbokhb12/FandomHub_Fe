@@ -6,8 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { SigninPayload } from '@/api/auth/authTypes';
 import { RiErrorWarningLine } from "react-icons/ri";
-import { useAuth } from '@/features/auth/hooks/useAuth';
-// import { s } from "framer-motion/dist/types.d-CQt5spQA";
+import { useAuth } from '@/features/auth/hooks/useAuth'; 
 
 const SignInForm = () => {
     const { register, handleSubmit, reset, formState: { errors, isValid } } = useForm<SigninPayload>({
@@ -22,7 +21,7 @@ const SignInForm = () => {
 
         const success = await sigin(data);
         if (success) {
-            // navigate('/');
+            navigate('/');
         }
 
         if (submitBtn.current) submitBtn.current.disabled = false;

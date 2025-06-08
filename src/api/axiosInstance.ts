@@ -26,7 +26,7 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response: AxiosResponse) => {
-    return response.data; // Trả về chỉ dữ liệu
+    return response; // Trả về chỉ dữ liệu
   },
   (error) => {
     // Xử lý lỗi chung, ví dụ: 401, 403, 500

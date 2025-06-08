@@ -6,6 +6,8 @@ import BackButton from '@/components/back/BackButton';
 import PageTransitionWrapper from '@/components/PageTransitionWrapper/PageTransitionWrapper';
 import { useEffect } from 'react';
 import logo from '@/assets/img/logo/Site-logo-removebg-preview.png';
+import { Bounce, ToastContainer } from "react-toastify";
+
 
 const AuthPage = () => {
     const location = useLocation();
@@ -45,6 +47,19 @@ const AuthPage = () => {
                             This site is protected by reCAPTCHA and the Google <a href="">Privacy Policy</a> and <a href=""> Terms of Service </a> apply.
                         </p>
                     </div>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={3000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick={false}
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                        transition={Bounce}
+                    />
                 </div>
             </PageTransitionWrapper>
         </>
