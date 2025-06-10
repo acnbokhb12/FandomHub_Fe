@@ -1,6 +1,6 @@
 import { useSignIn, useSignOut, useAuthUser } from 'react-auth-kit';
 import { authService } from '@/api';
-import { SigninPayload, RegisterPayLoad} from '@/api';
+import { SigninPayload, RegisterPayLoad } from '@/api';
 import { useState } from 'react';
 
 export const useAuth = () => {
@@ -22,7 +22,9 @@ export const useAuth = () => {
                     authState: { user },
                     refreshToken,
                 });
-                sessionStorage.setItem('refreshToken', refreshToken);
+                if (success) {
+                    localStorage.setItem('refreshToken', refreshToken); 
+                }
                 return true;
             } else {
                 setErrorMessage(res.message || 'Login failed');
@@ -35,34 +37,36 @@ export const useAuth = () => {
     };
 
     const register = async (data: RegisterPayLoad) => {
-    try {
-        const res = await authService.register(data);
-        if (res.success) {  
-            const { token, refreshToken, user } = res.data;
-            const success = signIn({
-                token,
-                expiresIn: 7200,
-                tokenType: 'Bearer',
-                authState: { user },
-                refreshToken,
-            });
-            sessionStorage.setItem('refreshToken', refreshToken);
-            return true;
-        } else {
-            setErrorMessage(res.message || 'Register failed');
+        try {
+            const res = await authService.register(data);
+            if (res.success) {
+                const { token, refreshToken, user } = res.data;
+                const success = signIn({
+                    token,
+                    expiresIn: 7200,
+                    tokenType: 'Bearer',
+                    authState: { user },
+                    refreshToken,
+                });
+                if (success) {
+                    localStorage.setItem('refreshToken', refreshToken); 
+                }
+                return true;
+            } else {
+                setErrorMessage(res.message || 'Register failed');
+                return false;
+            }
+        } catch {
+            setErrorMessage('An unexpected error occurred.');
             return false;
         }
-    } catch {
-        setErrorMessage('An unexpected error occurred.');
-        return false;
-    }
-};
+    };
 
     const logout = () => {
         signOut();
         sessionStorage.removeItem('refreshToken');
     };
 
-    return {sigin, logout, register, errorMessage};
+    return { sigin, logout, register, errorMessage };
 }
 

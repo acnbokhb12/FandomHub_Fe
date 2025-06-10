@@ -29,8 +29,7 @@ const RegisterForm = () => {
 
     const onSubmit = useCallback(async (data: RegisterPayLoad) => {
         if (submitBtn.current) submitBtn.current.disabled = true;
-
-        // Delay 2s để tránh spam (dù thành công hay thất bại)
+ 
         setTimeout(() => {
             if (submitBtn.current) submitBtn.current.disabled = false;
         }, 2000);
@@ -63,7 +62,7 @@ const RegisterForm = () => {
                                         {...formRegister('email', {
                                             required: 'Email is required',
                                             pattern: {
-                                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,  // regex kiểm tra email đơn giản
+                                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                                                 message: 'Please enter a valid email address'
                                             }
                                         })}
@@ -77,8 +76,23 @@ const RegisterForm = () => {
                                         id="userName"
                                         placeholder="Username"
                                         className={styles.input__field}
-                                        {...formRegister('userName', { required: true })}
+                                        {...formRegister('userName', { 
+                                            required: 'Username is required',
+                                            minLength: {
+                                                value: 3,
+                                                message: 'Username must be at least 3 characters'
+                                            },
+                                            maxLength: {
+                                                value: 20,
+                                                message: 'Username must not exceed 20 characters'
+                                            },
+                                            pattern: {
+                                                value: /^[a-zA-Z0-9_]+$/,
+                                                message: 'Username can only contain letters, numbers and underscores'
+                                            }
+                                        })}
                                     />
+                                    {errors.userName && <p className='text-danger mb-0' style={{ fontSize: '12px' }}>{errors.userName.message}</p>}
                                 </div>
                                 <div className={styles.input_group}>
                                     <label htmlFor="password" className={styles.input_label}>Password</label>
@@ -96,7 +110,6 @@ const RegisterForm = () => {
                                         })}
                                     />
                                     {errors.password && <p className='text-danger mb-0' style={{ fontSize: '12px' }}>{errors.password.message}</p>}
-
                                 </div>
                                 <div className={clsx(styles.input_group, styles.Date_input)}>
                                     <label htmlFor="birthday" className={styles.input_label}>Birthday</label>
@@ -106,8 +119,20 @@ const RegisterForm = () => {
                                         min={minDate}
                                         max={today}
                                         className={styles.input__field}
-                                        {...formRegister('birthDay', { required: true })}
+                                        {...formRegister('birthDay', { 
+                                            required: 'Birthday is required',
+                                            validate: value => {
+                                                const date = new Date(value);
+                                                const today = new Date();
+                                                const age = today.getFullYear() - date.getFullYear();
+                                                if (age < 13) {
+                                                    return 'You must be at least 13 years old';
+                                                }
+                                                return true;
+                                            }
+                                        })}
                                     />
+                                    {errors.birthDay && <p className='text-danger mb-0' style={{ fontSize: '12px' }}>{errors.birthDay.message}</p>}
                                 </div>
                             </div>
                             <div className={styles.registration_checkboxes}>
@@ -123,7 +148,7 @@ const RegisterForm = () => {
                                         <span>
                                             I agree to Fandom's <a href="">Terms of Use</a> and <a href="">Privacy Policy</a>
                                         </span>
-                                    </label>
+                                    </label> 
                                 </div>
                             </div>
                             <div className={styles.Submit_buttonWrapper}>

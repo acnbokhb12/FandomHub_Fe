@@ -9,10 +9,9 @@ const AuthProviderWrapper = ({ children }: Props) => {
 
     return (
         <AuthProvider
-            authType={'localstorage'}        // hoặc 'cookie'
-            authName={'_auth'}               // tên key lưu token
-            // cookieDomain={window.location.hostname}
-            // cookieSecure={false}             
+            authType={'localstorage'}      
+            authName={'_auth'}            
+                
         >
             {children}
         </AuthProvider>

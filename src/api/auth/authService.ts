@@ -8,6 +8,7 @@ export const authService = {
             const response = await authApi.sigin(payload); 
             return response;
         } catch (error: any) {
+            console.log(error)
             return {
                 success: false,
                 message: error.response?.data.message || 'An error occurred during sign-in.'
@@ -25,24 +26,24 @@ export const authService = {
                 message: error.response?.data?.message || 'An error occurred during registration.'
             };
         }
+    },
+
+    refreshToken: async (): Promise<AuthResponse | null> => {
+        try {
+            const oldRefreshToken = localStorage.getItem('refreshToken');
+            if (!oldRefreshToken) return null ;
+
+            const response = await authApi.refreshToken(oldRefreshToken);
+ 
+            if (response.success && response.data?.token && response.data?.refreshToken) {
+                localStorage.setItem('refreshToken', response.data.refreshToken);
+                return response;
+            }
+
+            return null;
+        } catch (error) {
+            console.error('Error refreshing token:', error);
+            return null;
+        }
     }
-}
-
-
-// export const signinService = async(payload : SigninPayload) : Promise<SigninResponse> => {
-//     try{
-//         const res = await axiosInstance.post('/auth/signin', payload);
-//         return {
-//             success: res.data.success,
-//             data: {
-//                 token: res.data.data.token,
-//                 user: res.data.data.user
-//             }
-//         };
-//     }catch (error : any) {
-//         return {
-//            success: error.response?.data?.success || false,
-//             message: error.response?.data?.message || 'An error occurred during sign-in.'
-//         }
-//     }
-// }
+} 

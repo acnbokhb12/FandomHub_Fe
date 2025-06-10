@@ -1,21 +1,35 @@
+// axiosInstance.ts
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-
+import { handleRefreshToken } from '@/api';
+import { useAuthHeader } from 'react-auth-kit';
 
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: 'https://localhost:7045',  
-  timeout: 10000, // Timeout 10s
+  baseURL: 'https://localhost:7045',
+  timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
-    // Nếu cần thêm token: 'Authorization': `Bearer ${token}`,
   },
-}); 
+});
+
+// Tạo một hàm để lấy token từ react-auth-kit
+const getAuthToken = () => {
+  try {
+    const token = localStorage.getItem('_auth');
+    if (token) {
+      const parsedToken = JSON.parse(token);
+      return parsedToken.token ? `Bearer ${parsedToken.token}` : null;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+};
 
 axiosInstance.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    // Thêm logic trước khi gửi request, ví dụ: thêm token
-    const token = localStorage.getItem('token');
+    const token = getAuthToken();
     if (token && config.headers) {
-      config.headers.Authorization = `Bearer ${token}`;
+      config.headers.Authorization = token;
     }
     return config;
   },
@@ -26,16 +40,36 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response: AxiosResponse) => {
-    return response; // Trả về chỉ dữ liệu
+    return response;
   },
-  (error) => {
-    // Xử lý lỗi chung, ví dụ: 401, 403, 500
-    if (error.response?.status === 401) {
-      // Xử lý unauthorized, ví dụ: logout user 
+  async (error) => {
+    if (!error.config) {
+      return Promise.reject(error);
+    }
+
+    const originalRequest = error.config;
+
+    if (originalRequest.url && (originalRequest.url.includes('/auth/signin') || originalRequest.url.includes('/auth/register'))) {
+      return Promise.reject(error);
+    }
+
+    if (error.response?.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+
+      const refreshSuccess = await handleRefreshToken();
+
+      if (refreshSuccess) {
+        const newToken = getAuthToken();
+        if (originalRequest.headers && newToken) {
+          originalRequest.headers.Authorization = newToken;
+        }
+        return axiosInstance(originalRequest);
+      } else {
+        window.location.href = '/signin';
+      }
     }
     return Promise.reject(error);
   }
 );
-
 
 export default axiosInstance;

@@ -13,6 +13,7 @@ export type RegisterPayLoad = {
 type UserInfo = {
   id: number;
   name: string;
+  fullName: string;
   email: string;
   // thêm các field khác nếu có
 }

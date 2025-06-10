@@ -16,7 +16,7 @@ const SignInForm = () => {
     const navigate = useNavigate();
     const submitBtn = useRef<HTMLButtonElement>(null);
     const { sigin, errorMessage } = useAuth();
-    const submitForm = async (data: SigninPayload) => {
+    const submitForm = async (data: SigninPayload) => { 
         if (submitBtn.current) submitBtn.current.disabled = true;
 
         const success = await sigin(data);
