@@ -1,5 +1,5 @@
-import {FaRegUserCircle } from 'react-icons/fa';
-import styles from './styles.module.scss'; 
+import { FaRegUserCircle } from 'react-icons/fa';
+import styles from './styles.module.scss';
 // import { useColors } from '../../hooks/useColors';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { ColorModeContext, tokens } from '@/theme';
@@ -9,27 +9,28 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import SearchIcon from "@mui/icons-material/Search";
 import clsx from 'clsx';
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-// import { IoIosArrowDown, IoIosArrowForward, IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import { useAuth } from '@/features/auth/hooks/useAuth';
+import { useAuthUser } from 'react-auth-kit';
+import { LoggedInButton } from '@/components/auth/LoggedInButton';
+import { NotLoggedInButtons } from '@/components/auth/NotLoggedInButtons';
 
 const Topbar = () => {
-    console.log("render: topbar")
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
     const colorMode = useContext(ColorModeContext);
-    const [selected, setSelected] = useState("Home");
+    // const [selected, setSelected] = useState("Home");
     const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 1030);
     const [showMenu, setShowMenu] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
-    const navigate = useNavigate();
-    const handleLoginClick = () => {
-        navigate("/signin");
-    };
-    const handleRegisterClick = () => {
-        navigate("/register");
-    };
+    const auth = useAuthUser();
+    const { logout } = useAuth();
+    const isLoggedIn = !!auth();
+
+
+
     useEffect(() => {
         const handleResize = () => {
             setIsMobileView(window.innerWidth <= 1030);
@@ -117,7 +118,7 @@ const Topbar = () => {
                                         <NotificationsOutlinedIcon className={styles.icon__btn_topbar} sx={{ color: colors.browYellow[100], }} />
                                     </IconButton>
                                     <div className={styles.contain__btn_auth} style={{ width: "100%" }}>
-                                        <div className={styles.contain__btn_auth_detail}>
+                                        {/* <div className={styles.contain__btn_auth_detail}>
                                             <button
                                                 type="button" className={clsx(styles.btn__login)}
                                                 onClick={handleLoginClick}
@@ -145,7 +146,20 @@ const Topbar = () => {
                                                     Sign in
                                                 </button>
                                             </div>
-                                        </div>
+                                        </div> */}
+                                        {/* <div>
+                                            <button style={{ background: "transparent", border: "none", cursor: "pointer" }} >
+                                                <FaRegUserCircle style={{ fontSize: "2.6rem", }} />
+                                            </button>
+                                        </div> */}
+                                        {isLoggedIn ? (
+                                            <LoggedInButton onLogout={() => {
+                                                logout();
+                                            }} />
+                                        ) : (
+                                            <NotLoggedInButtons />
+                                        )}
+
                                     </div>
                                 </Box>
                             </div>

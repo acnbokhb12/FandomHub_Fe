@@ -1,8 +1,10 @@
+const API_FIRSTPOINT= 'api/v1/';
+
 export const API_ENDPOINTS = {
   AUTH: {
-    SIGIN: '/auth/signin',
-    REGISTER: '/auth/register',
-    REFRESH_TOKEN: '/auth/refresh-token',
+    SIGIN: `/${API_FIRSTPOINT}auth/signin`,
+    REGISTER: `/${API_FIRSTPOINT}auth/register`,
+    REFRESH_TOKEN: `/${API_FIRSTPOINT}auth/refresh-token`,
     ME: '/auth/me',
   },
   CHARACTERS: {
