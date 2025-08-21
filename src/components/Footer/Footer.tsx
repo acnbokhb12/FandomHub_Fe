@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import styles from '@/components/Footer/styles.module.scss';
+import styles from './styles.module.scss';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaYoutube } from 'react-icons/fa';
 
