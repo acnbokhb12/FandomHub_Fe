@@ -1,6 +1,6 @@
 import { Box, colors, IconButton, Typography } from "@mui/material"; 
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import styles from './styles.module.scss';
+import styles from '@/components/Sidebar/styles.module.scss';
 import { Link } from "react-router-dom";
 import { useColors } from '@/hooks/useColors';
 import { useState } from "react";

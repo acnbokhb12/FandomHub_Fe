@@ -1,5 +1,5 @@
 import { FaRegUserCircle } from 'react-icons/fa';
-import styles from './styles.module.scss';
+import styles from '@/components/Topbar/styles.module.scss';
 // import { useColors } from '../../hooks/useColors';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { ColorModeContext, tokens } from '@/theme';
